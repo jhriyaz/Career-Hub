@@ -23,7 +23,7 @@ const Header = () => {
             ? "Statistics"
             : pathName ==="/applied-jobs"
             ? "Applied Jobs"
-            : "Blog"}
+            : pathName==="/blog"?"Blog":''}
         </h1>
       )}
     </header>
