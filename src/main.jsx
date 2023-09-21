@@ -5,14 +5,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Error from "./components/Error/Error";
 import Root from "./layouts/Root/Root";
+import Categories from "./components/Categories/Categories";
+import axios from "axios";
 const router = createBrowserRouter([
+  
   { 
     path: "/",
     element: <Root></Root>, 
   errorElement: <Error></Error>,
   children:[{
     path: "/",
-    element:<Home></Home>
+    element:<Home></Home>,
+    children:[{
+      path:'/',
+      loader:()=>axios.get('data/categories.json') ,
+      element:<Categories></Categories>
+    }]
   },{
     path: "/statistics",
     element:<>statistics</>
