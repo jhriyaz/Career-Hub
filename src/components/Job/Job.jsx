@@ -1,17 +1,14 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import {FaDollarSign ,FaBagShopping,FaLocationDot} from 'react-icons/fa6';
+import { setAppliedJobs } from "../../utilities/localStorage";
+
 const Job = () => {
   let par = useParams();
   const data = useLoaderData().data;
   let jobData = data.find((job) => job.id == par.id);
   let {
-    id,
-    logo,
     job_title,
-    company_name,
-    remote_or_onsite,
-    location,
-    job_type,
+    id,
     salary,
     job_description,
     job_responsibility,
@@ -20,6 +17,10 @@ const Job = () => {
     contact_information,
   } = jobData;
   let { phone, email, address } = contact_information;
+  let handleApply=(id)=>{
+    setAppliedJobs(id)
+  
+  }
   return (
     <section className="container mx-auto mt-32 grid lg:grid-cols-3">
       <div className="lg:col-span-2 p-6">
@@ -61,7 +62,7 @@ const Job = () => {
         <p  className="flex items-center text-xl text-[#757575] font-medium gap-4 mt-6"> <FaBagShopping className="text-[#7E90FE]"></FaBagShopping> <span className="text-black  font-bold">Email:</span> { email}</p>
         <p  className="flex items-center text-xl text-[#757575] font-medium gap-4 mt-6"> <FaLocationDot className="text-[#7E90FE]"></FaLocationDot> <span className="text-black  font-bold">Address:</span> { address}</p>
        </div>
-        <button className="btn-custom w-full py-4 mt-6" >Apply</button>
+        <button className="btn-custom w-full py-4 mt-6" onClick={()=>{handleApply(id)}}>Apply</button>
       </div>
       
     </section>

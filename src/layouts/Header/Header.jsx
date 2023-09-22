@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Banner from "../../components/Banner/Banner";
-
+import { Toaster } from 'react-hot-toast';
 const Header = () => {
   let location = useLocation();
 
@@ -26,6 +26,7 @@ const Header = () => {
             : pathName==="/blog"?"Blog":'Job Details'}
         </h1>
       )}
+      <Toaster />
     </header>
   );
 };

@@ -9,6 +9,7 @@ import Categories from "./components/Categories/Categories";
 import axios from "axios";
 import Featured from "./components/Featured/FeaturedJobs";
 import Job from "./components/Job/Job";
+import AppliedJobs from "./components/AppliedJobs/AppliedJobs";
 const router = createBrowserRouter([
   
   { 
@@ -20,11 +21,11 @@ const router = createBrowserRouter([
     element:<Home></Home>,
     children:[{
       path:'/',
-      loader:()=>axios.get('data/categories.json') ,
+      loader:()=>axios.get('../public/data/categories.json') ,
       element:<Categories></Categories>,
       children:[{
         path:'/',
-        loader:()=>axios.get('data/jobs.json') ,
+        loader:()=>axios.get('../public/data/jobs.json') ,
         element:<Featured></Featured>
       }]
     }
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/applied-jobs",
-    element:<>statistics</>
+    loader:()=>axios.get('../data/jobs.json'),
+    element:<AppliedJobs></AppliedJobs>
   },{
     path: "/blog",
     element:<>statistics</>
