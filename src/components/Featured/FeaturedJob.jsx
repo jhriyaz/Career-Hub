@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FaLocationDot,FaDollarSign } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
-const FeaturedJob = ({featured,handleLoadData}) => {
+const FeaturedJob = ({featured}) => {
     console.log(featured)
     let {id,logo,job_title,company_name,remote_or_onsite,location,job_type,salary}=featured
   

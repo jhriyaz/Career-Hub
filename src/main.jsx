@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider, useParams } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Error from "./components/Error/Error";
 import Root from "./layouts/Root/Root";
@@ -41,11 +41,10 @@ const router = createBrowserRouter([
     element:<>statistics</>
   },{
     path: "/job/:id",
-    loader:()=>axios.get('data/jobs.json'),
+    loader:()=>axios.get('../public/data/jobs.json'),
     element:<Job></Job>,
   }
 ]
-
  },
 ]);
 
