@@ -21,11 +21,11 @@ const router = createBrowserRouter([
     element:<Home></Home>,
     children:[{
       path:'/',
-      loader:()=>axios.get('../public/data/categories.json') ,
+      loader:()=>axios.get('/data/categories.json') ,
       element:<Categories></Categories>,
       children:[{
         path:'/',
-        loader:()=>axios.get('../public/data/jobs.json') ,
+        loader:()=>axios.get('/data/jobs.json') ,
         element:<Featured></Featured>
       }]
     }
@@ -36,14 +36,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/applied-jobs",
-    loader:()=>axios.get('../data/jobs.json'),
+    loader:()=>axios.get('/data/jobs.json'),
     element:<AppliedJobs></AppliedJobs>
   },{
     path: "/blog",
     element:<>statistics</>
   },{
     path: "/job/:id",
-    loader:()=>axios.get('../public/data/jobs.json'),
+    loader:()=>axios.get('/data/jobs.json'),
     element:<Job></Job>,
   }
 ]
