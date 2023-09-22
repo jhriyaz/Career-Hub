@@ -8,7 +8,7 @@ const Root = () => {
       <>
       <Header></Header>
       {
-        navigation.state==='loading'?<span className="loading loading-spinner text-accent"></span>:<Outlet></Outlet>
+        navigation.state==='loading'?<span className="loading loading-spinner text-accent mx-auto flex justify-center"></span>:<Outlet></Outlet>
       }
       
       <Footer></Footer>
